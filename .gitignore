@@ -5,6 +5,7 @@
 
 # This project
 static/
+log.txt
 
 # User-specific files
 *.rsuser
