@@ -28,7 +28,7 @@ namespace hc
 			boost::asio::io_context& io_context_;
 			boost::asio::ip::tcp::socket socket_;
 
-			hc::network::Request request_;
+			hc::network::Request client_request_;
 			char data_[hc::settings::BUFFER_SIZE];
 
 			friend HttpServer;

@@ -47,5 +47,45 @@ namespace hc
                     content_type_ = RequestContentType::BINARY;
             }
         }
+        std::string Request::getRawRequest(hc::network::RequestStatus status, hc::network::RequestContentType type, const std::string& body)
+        {
+            std::string status_line;
+            switch (status)
+            {
+            case RequestStatus::OK_200:
+                status_line = "HTTP/1.1 200 OK";
+                break;
+            case RequestStatus::SERVER_ERROR_404:
+                status_line = "HTTP/1.1 404 Not Found";
+                break;
+            }
+
+            std::string content_type;
+            switch (type)
+            {
+            case RequestContentType::HTML:
+                content_type = "text/html";
+                break;
+            case RequestContentType::JSON:
+                content_type = "application/json";
+                break;
+            case RequestContentType::XML:
+                content_type = "application/xml";
+                break;
+            case RequestContentType::PLAIN_TEXT:
+                content_type = "text/plain";
+                break;
+            case RequestContentType::BINARY:
+                content_type = "application/octet-stream";
+                break;
+            }
+
+            std::string header = status_line + "\r\n";
+            header += "Content-Type: " + content_type + "\r\n";
+            header += "Content-Length: " + std::to_string(body.length()) + "\r\n";
+            header += "\r\n";
+
+            return header + body;
+        }
     }
 }
