@@ -30,10 +30,13 @@
     <ClCompile Include="src\network\Session.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\network\StaticFileServer.cpp">
+    <ClCompile Include="src\managers\StaticFileManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\handlers\RequestHandler.cpp">
+    <ClCompile Include="src\handlers\EventHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\network\Router.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,10 +56,13 @@
     <ClInclude Include="src\network\Session.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\network\StaticFileServer.hpp">
+    <ClInclude Include="src\managers\StaticFileManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\handlers\RequestHandler.hpp">
+    <ClInclude Include="src\handlers\EventHandler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\network\Router.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

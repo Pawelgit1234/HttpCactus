@@ -2,9 +2,9 @@
 
 namespace hc
 {
-	namespace network
+	namespace handler
 	{
-		class StaticFileServer
+		class EventHandler
 		{
 		public:
 

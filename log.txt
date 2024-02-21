@@ -1,0 +1,2 @@
+[21.02.2024 19:02:14] [0;32m[INFO] Server started accepting.[0m
+[21.02.2024 19:02:17] [0;32m[INFO] Client accepted.[0m

@@ -135,20 +135,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\handlers\RequestHandler.cpp" />
+    <ClCompile Include="src\handlers\EventHandler.cpp" />
+    <ClCompile Include="src\network\Router.cpp" />
     <ClCompile Include="src\network\Session.cpp" />
     <ClCompile Include="src\network\HttpServer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\network\Request.cpp" />
-    <ClCompile Include="src\network\StaticFileServer.cpp" />
+    <ClCompile Include="src\managers\StaticFileManager.cpp" />
     <ClCompile Include="src\utils\Logger.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\handlers\RequestHandler.hpp" />
+    <ClInclude Include="src\handlers\EventHandler.hpp" />
+    <ClInclude Include="src\network\Router.hpp" />
     <ClInclude Include="src\network\Session.hpp" />
     <ClInclude Include="src\network\HttpServer.hpp" />
     <ClInclude Include="src\network\Request.hpp" />
-    <ClInclude Include="src\network\StaticFileServer.hpp" />
+    <ClInclude Include="src\managers\StaticFileManager.hpp" />
     <ClInclude Include="src\settings.hpp" />
     <ClInclude Include="src\utils\Logger.hpp" />
   </ItemGroup>

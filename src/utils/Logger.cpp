@@ -1,6 +1,6 @@
 #include "Logger.hpp"
 
-namespace cactus
+namespace hc
 {
     namespace logger
     {

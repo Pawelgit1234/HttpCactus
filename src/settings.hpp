@@ -11,6 +11,7 @@ namespace hc
 {
 	namespace settings
 	{
-		const unsigned short PORT = 8080;
+		const unsigned short PORT = 8000;
+		const unsigned short BUFFER_SIZE = 512;
 	}
 }

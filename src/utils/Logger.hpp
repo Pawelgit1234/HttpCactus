@@ -8,7 +8,7 @@
 
 #include "../settings.hpp"
 
-namespace cactus
+namespace hc
 {
 	namespace logger
 	{
