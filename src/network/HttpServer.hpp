@@ -25,7 +25,6 @@ namespace hc
 			void run();
 
 			void addStaticFolderPath(const std::string& path="static");
-			void addText(const std::string& text, const std::string& url);
 			void addFile(const std::string& path, const std::string& url);
 
 		private:

@@ -24,10 +24,6 @@ namespace hc
 			static_file_manager_.setStaticFolderPath(path);
 		}
 
-		void HttpServer::addText(const std::string& text, const std::string& url)
-		{
-		}
-
 		void HttpServer::addFile(const std::string& path, const std::string& url)
 		{
 			router_.addUrl(url, path);

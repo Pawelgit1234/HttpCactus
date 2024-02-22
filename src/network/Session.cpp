@@ -17,14 +17,22 @@ namespace hc
 
 		void Session::start()
 		{
-			hc::logger::log("Client accepted.", hc::logger::LoggerType::INFO);
-			doRead();
-			doSend();
-			socket_.close();
+			try
+			{
+				hc::logger::log("Client accepted.", hc::logger::LoggerType::INFO);
+				doRead();
+				doSend();
+				socket_.close();
+			}
+			catch (std::exception& e)
+			{
+				hc::logger::log("Session error: ", hc::logger::LoggerType::WARNING);
+			}	
 		}
 
 		void Session::doRead()
 		{
+			socket_.wait(boost::asio::socket_base::wait_read);
 			socket_.read_some(boost::asio::buffer(data_, hc::settings::BUFFER_SIZE));
 			client_request_.parseRawRequest(std::string(data_));
 			hc::logger::log("Got a request.", hc::logger::LoggerType::INFO);
@@ -34,7 +42,7 @@ namespace hc
 		{
 			std::string request = request_handler_.handleRequest(client_request_);
 			socket_.write_some(boost::asio::buffer(request));
-			hc::logger::log("Sent a answer.", hc::logger::LoggerType::INFO);
+			hc::logger::log("Sent a answer.\n", hc::logger::LoggerType::INFO);
 		}
 	}
 }
