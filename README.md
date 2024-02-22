@@ -1,4 +1,3 @@
-![HttpCactus](img/cactus.png)
 # HttpCactus
 HttpCactus is a lightweight and efficient web server implemented in C++. It provides essential functionalities for serving web content with minimal overhead, making it perfect for small to medium-scale applications. With its minimalistic design, HttpCactus prioritizes simplicity and performance, offering a straightforward solution for handling concurrent connections and serving HTTP requests.
 
