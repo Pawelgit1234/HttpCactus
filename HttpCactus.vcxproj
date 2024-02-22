@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\handlers\EventHandler.cpp" />
+    <ClCompile Include="src\handlers\RequestHandler.cpp" />
     <ClCompile Include="src\network\Router.cpp" />
     <ClCompile Include="src\network\Session.cpp" />
     <ClCompile Include="src\network\HttpServer.cpp" />
@@ -146,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\handlers\EventHandler.hpp" />
+    <ClInclude Include="src\handlers\RequestHandler.hpp" />
     <ClInclude Include="src\network\Router.hpp" />
     <ClInclude Include="src\network\Session.hpp" />
     <ClInclude Include="src\network\HttpServer.hpp" />
@@ -153,6 +155,9 @@
     <ClInclude Include="src\managers\StaticFileManager.hpp" />
     <ClInclude Include="src\settings.hpp" />
     <ClInclude Include="src\utils\Logger.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="static\html\index.html" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

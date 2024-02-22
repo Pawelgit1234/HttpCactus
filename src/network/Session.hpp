@@ -6,6 +6,9 @@
 
 #include "../utils/Logger.hpp"
 #include "Request.hpp"
+#include "Router.hpp"
+#include "../handlers/RequestHandler.hpp"
+#include "../managers/StaticFileManager.hpp"
 
 namespace hc
 {
@@ -16,7 +19,7 @@ namespace hc
 		class Session : public std::enable_shared_from_this<Session>
 		{
 		public:
-			Session(boost::asio::io_context& io_context) noexcept;
+			Session(boost::asio::io_context& io_context, hc::network::Router& router, hc::handler::RequestHandler& request_handler, hc::manager::StaticFileManager& static_file_manager) noexcept;
 			~Session() noexcept;
 
 			void start();
@@ -27,8 +30,10 @@ namespace hc
 
 			boost::asio::io_context& io_context_;
 			boost::asio::ip::tcp::socket socket_;
-
-			hc::network::Request client_request_;
+			
+			hc::network::Router& router_;
+			hc::handler::RequestHandler& request_handler_;
+			hc::manager::StaticFileManager& static_file_manager_;
 			char data_[hc::settings::BUFFER_SIZE];
 
 			friend HttpServer;

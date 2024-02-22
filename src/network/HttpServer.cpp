@@ -17,12 +17,19 @@ namespace hc
 			startAccept();
 		}
 
+		void HttpServer::addStaticFolderPath(const std::string& path)
+		{
+			static_file_manager_.setStaticFolderPath(path);
+		}
+
 		void HttpServer::addText(const std::string& text, const std::string& url)
 		{
 		}
 
 		void HttpServer::addFile(const std::string& path, const std::string& url)
 		{
+			router_.addUrl(url, path);
+			static_file_manager_.addStaticFile(path);
 		}
 
 		void HttpServer::startAccept()
@@ -31,7 +38,7 @@ namespace hc
 
 			while (true)
 			{
-				auto session = std::make_shared<Session>(io_context_);
+				auto session = std::make_shared<Session>(io_context_, router_, request_handler_, static_file_manager_);
 				acceptor_.accept(session->socket_);
 
 				std::thread([session]()

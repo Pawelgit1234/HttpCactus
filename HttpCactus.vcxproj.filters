@@ -39,6 +39,9 @@
     <ClCompile Include="src\network\Router.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\handlers\RequestHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\settings.hpp">
@@ -65,5 +68,11 @@
     <ClInclude Include="src\network\Router.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\handlers\RequestHandler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="static\html\index.html" />
   </ItemGroup>
 </Project>

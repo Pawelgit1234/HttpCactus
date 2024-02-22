@@ -9,6 +9,8 @@
 #include "Session.hpp"
 #include "../utils/Logger.hpp"
 #include "Router.hpp"
+#include "../handlers/RequestHandler.hpp"
+#include "../managers/StaticFileManager.hpp"
 
 namespace hc
 {
@@ -22,7 +24,7 @@ namespace hc
 
 			void run();
 
-
+			void addStaticFolderPath(const std::string& path="static");
 			void addText(const std::string& text, const std::string& url);
 			void addFile(const std::string& path, const std::string& url);
 
@@ -33,6 +35,8 @@ namespace hc
 			boost::asio::ip::tcp::acceptor acceptor_;
 
 			hc::network::Router router_;
+			hc::handler::RequestHandler request_handler_;
+			hc::manager::StaticFileManager static_file_manager_;
 		};
 	}
 }

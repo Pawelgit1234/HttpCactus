@@ -5,6 +5,8 @@
 int main(int argc, char* argv[])
 {
 	hc::network::HttpServer server;
+	server.addStaticFolderPath("static/");
+	server.addFile("html/index.html", "/");
 	server.run();
 
 	return 0;

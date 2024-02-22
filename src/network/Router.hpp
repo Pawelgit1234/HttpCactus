@@ -1,8 +1,7 @@
 #pragma once
 
-#include <vector>
-
-#include "../managers/StaticFileManager.hpp"
+#include <map>
+#include <string>
 
 namespace hc
 {
@@ -14,8 +13,11 @@ namespace hc
 			Router() noexcept;
 			~Router() noexcept;
 
+			void addUrl(const std::string& url, const std::string& path) { urls_[url] = path; }
+			std::string getPath(const std::string& url) { return urls_[url]; }
+
 		private:
-			hc::manager::StaticFileManager static_file_manager_;
+			std::map<std::string, std::string> urls_;
 		};
 	}
 }
