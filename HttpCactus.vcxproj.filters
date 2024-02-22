@@ -74,5 +74,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="static\html\index.html" />
+    <None Include="static\html\HTMLPage.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="static\img\img.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
