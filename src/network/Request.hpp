@@ -35,14 +35,16 @@ namespace hc
 		{
 		public:
 			void parseRawRequest(const std::string& request);
-			std::string getRawRequest(hc::network::RequestStatus status, hc::network::RequestContentType type, const std::string& body);
+			std::string getRawRequest(const std::string& body);
 
 			RequestMethod getRequestMethod() const { return method_; }
 			RequestContentType getContentType() const { return content_type_; }
+			RequestStatus getRequestStatus() const { return status_; }
 			const std::string& getURL() const { return url_; }
 			const std::string& getUserAgent() const { return user_agent_; }
 			const std::string& getHost() const { return host_; }
 
+			void setRequestStatus(RequestStatus status) { status_ = status; }
 			void setRequestMethod(hc::network::RequestMethod method) { method_ = method; }
 			void setContentType(hc::network::RequestContentType content_type) { content_type_ = content_type; }
 			void setURL(const std::string& url) { url_ = url; }
@@ -55,6 +57,10 @@ namespace hc
 			std::string url_;
 			std::string user_agent_;
 			std::string host_;
+
+			// Just for server answer
+			RequestStatus status_;
+
 		};
 	}
 }

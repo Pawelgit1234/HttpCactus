@@ -6,7 +6,9 @@ namespace hc
 {
 	namespace network
 	{
-		HttpServer::HttpServer() noexcept : acceptor_(io_context_, tcp::endpoint(tcp::v4(), hc::settings::PORT)) {}
+		HttpServer::HttpServer() noexcept : acceptor_(io_context_, tcp::endpoint(tcp::v4(), hc::settings::PORT)), request_handler_(router_, static_file_manager_)
+		{
+		}
 
 		HttpServer::~HttpServer() noexcept
 		{
@@ -38,7 +40,7 @@ namespace hc
 
 			while (true)
 			{
-				auto session = std::make_shared<Session>(io_context_, router_, request_handler_, static_file_manager_);
+				auto session = std::make_shared<Session>(io_context_, request_handler_);
 				acceptor_.accept(session->socket_);
 
 				std::thread([session]()

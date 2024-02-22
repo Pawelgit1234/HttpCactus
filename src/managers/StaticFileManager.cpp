@@ -22,8 +22,10 @@ namespace hc
 				return;
 			}
 
-			std::string text;
-			file >> text;
+			std::stringstream buffer;
+			buffer << file.rdbuf();
+
+			std::string text = buffer.str();
 			files_[path] = text;
 
 			hc::logger::log(path + " added.", hc::logger::LoggerType::INFO);

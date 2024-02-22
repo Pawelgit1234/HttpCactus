@@ -47,10 +47,10 @@ namespace hc
                     content_type_ = RequestContentType::BINARY;
             }
         }
-        std::string Request::getRawRequest(hc::network::RequestStatus status, hc::network::RequestContentType type, const std::string& body)
+        std::string Request::getRawRequest(const std::string& body)
         {
             std::string status_line;
-            switch (status)
+            switch (status_)
             {
             case RequestStatus::OK_200:
                 status_line = "HTTP/1.1 200 OK";
@@ -61,7 +61,7 @@ namespace hc
             }
 
             std::string content_type;
-            switch (type)
+            switch (content_type_)
             {
             case RequestContentType::HTML:
                 content_type = "text/html";
